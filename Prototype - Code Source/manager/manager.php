@@ -1,6 +1,6 @@
 <?php
 
-abstract class Manager {
+abstract class manager {
     private $bdd;
     protected function executerRequete($sql, $params = null) {
         if ($params == null) {
@@ -15,7 +15,7 @@ abstract class Manager {
     private function getBdd() {
         if ($this->bdd == null) {
             $this->bdd = new PDO('mysql:host=localhost;dbname=formers',
-                    'root', '12345',
+                    'root','12345',
                     array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
         }
         return $this->bdd;

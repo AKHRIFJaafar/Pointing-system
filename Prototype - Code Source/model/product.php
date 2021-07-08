@@ -1,5 +1,16 @@
 <?php
-class Product{
+
+class product implements JsonSerializable {
+	public function jsonSerialize()
+    {
+        return array(
+			 'id' => $this->_id,
+             'Firstname' => $this->_Firstname,
+             'Lastname' => $this->_Lastname,
+             'Matricule' => $this->_Matricule,
+             'Email' => $this->_Email,
+        );
+    }
 	private $_id;
 	private $_Firstname;
 	private $_Lastname;
@@ -20,7 +31,6 @@ class Product{
 		$this->setEmail ($data["Email"]);
 
 	}
-
 		public function id() { return $this->_id; }
 		public function Firstname() { return $this->_Firstname; }
 		public function Lastname() { return $this->_Lastname; }
@@ -32,17 +42,12 @@ class Product{
 			$this->_id = (int) $id;
 		}
 
-		public function setFirst($Firstname){
-			if (is_string($Firstname) && strlen($Firstname) <= 255)
-			{
+		public function setFirst($Firstname){	
 					$this->_Firstname = $Firstname;
-			}
+			
 		}
 		public function setLast($Lastname){
-			if (is_string($Lastname) && strlen($Lastname) <= 255)
-			{
 					$this->_Lastname = $Lastname;
-			}
 		}
 
 		public function setMatricule($Matricule){
@@ -50,9 +55,7 @@ class Product{
 		}
 
 		public function setEmail($Email){
-				if (is_string($Email) && strlen($Email)){
 					$this->_Email = $Email;
-				}
 		}
 
 }
