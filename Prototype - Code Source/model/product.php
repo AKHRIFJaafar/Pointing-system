@@ -1,6 +1,6 @@
 <?php
 
-class product implements JsonSerializable {
+class Product implements JsonSerializable {
 	public function jsonSerialize()
     {
         return array(
@@ -16,21 +16,13 @@ class product implements JsonSerializable {
 	private $_Lastname;
 	private $_Matricule;
 	private $_Email;
-
-
-	public function __construct($data) {
-		$this->fill($data);
+	
+	public function __construct() {
+	
 	}
-
-	public function fill(array $data)
-	{
-		$this->setId ($data["id"]);
-		$this->setFirst ($data["Firstname"]);
-		$this->setLast ($data["Lastname"]);
-		$this->setMatricule ($data["Matricule"]);
-		$this->setEmail ($data["Email"]);
-
-	}
+	// public function __construct($data) {
+	// 	$this->fill($data);
+	// }
 		public function id() { return $this->_id; }
 		public function Firstname() { return $this->_Firstname; }
 		public function Lastname() { return $this->_Lastname; }
