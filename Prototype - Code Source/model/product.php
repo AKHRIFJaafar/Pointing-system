@@ -23,7 +23,7 @@ class Product implements JsonSerializable {
 	// public function __construct($data) {
 	// 	$this->fill($data);
 	// }
-		public function id() { return $this->_id; }
+		public function getId() { return $this->_id; }
 		public function getName() { return $this->_Firstname; }
 		public function getLast() { return $this->_Lastname; }
 		public function getMatricule() { return $this->_Matricule; }

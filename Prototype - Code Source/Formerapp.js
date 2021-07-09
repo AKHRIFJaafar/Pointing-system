@@ -58,7 +58,6 @@ $(".submit").click(function() {
 
 //update-btn-on-click
 $("body").on("click",".FormersList .update-btn",function() {
-  console.log('show baby')
     $(".edit-form").show();
     var index = $(this).parents("tr").index();
     $(".edit-form .Firstname").val(FormersList[index]["Firstname"]);
@@ -70,7 +69,6 @@ $("body").on("click",".FormersList .update-btn",function() {
   
   // save-Former-database
   $(".save-former").click(function() {
-    console.log('woooooooow')
     var Fname = $(".edit-form .Firstname").val();
     var Lname = $(".edit-form .Lastname").val();
     var Matricule = $(".edit-form .Matricule").val();
@@ -81,7 +79,7 @@ $("body").on("click",".FormersList .update-btn",function() {
 
     //send to php file via ajax
     $.ajax({
-      url:"api/editFormer.php",
+      url:"api/updateProduct.php",
       method:"POST",
       data:{
         id : Id,
@@ -106,7 +104,7 @@ $("body").on("click",".btn-danger",function(){
     console.log(FormerId)
 
     $.ajax({
-        url:"api/deleteFormer.php",
+        url:"api/deleteProduct.php",
         method:"POST",
         data:{
             id :FormerId

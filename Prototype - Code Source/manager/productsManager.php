@@ -15,6 +15,7 @@ class productsManager {
 		$result = $dbh->query($req)->fetchAll();
 		foreach ($result as $row){
 			$item = new Product();
+			$item->setId($row["id"]);
 			$item->setFirst($row["Firstname"]);
 			$item->setLast($row["Lastname"]);
 			$item->setMatricule($row["Matricule"]);
@@ -29,14 +30,38 @@ class productsManager {
 			$dbh = new PDO("mysql:host=localhost;dbname=formers","root","12345");
 			$req = "INSERT INTO `former`(`id`,`Firstname`, `Lastname`,`Matricule`,`Email`) VALUES (:id,:Firstname,:Lastname,:Matricule,:Email)";
 
-			$addProductQuery = $dbh ->prepare($req);
-			$addProductQuery -> bindParam(":id",$product->id(),PDO::PARAM_STR);	
-			$addProductQuery -> bindParam(":Firstname",$product->getName(),PDO::PARAM_STR);
-            $addProductQuery -> bindParam(":Lastname",$product->getLast(),PDO::PARAM_STR);
-            $addProductQuery -> bindParam(":Matricule",$product->getMatricule(),PDO::PARAM_STR);
-            $addProductQuery -> bindParam(":Email",$product->getEmail(),PDO::PARAM_STR);
-			$addProductQuery->execute();
+			$updateProductQuery = $dbh ->prepare($req);
+			$updateProductQuery -> bindParam(":id",$product->getId(),PDO::PARAM_STR);	
+			$updateProductQuery -> bindParam(":Firstname",$product->getName(),PDO::PARAM_STR);
+            $updateProductQuery -> bindParam(":Lastname",$product->getLast(),PDO::PARAM_STR);
+            $updateProductQuery -> bindParam(":Matricule",$product->getMatricule(),PDO::PARAM_STR);
+            $updateProductQuery -> bindParam(":Email",$product->getEmail(),PDO::PARAM_STR);
+			$updateProductQuery->execute();
         }
+		// delete product
+
+		public function delete($id){
+			$dbh = new PDO("mysql:host=localhost;dbname=formers","root","12345");
+
+			$req = "DELETE FROM former WHERE id = $id";
+			$deleteProduct = $dbh->prepare($req);
+            $deleteProduct->execute();
+        }
+		// update product		
+		public function update($id,$product){
+			$dbh = new PDO("mysql:host=localhost;dbname=formers","root","12345");
+			$req = "UPDATE Former SET Firstname = :Firstname,Lastname = :Lastname,Matricule = :Matricule,Email = :Email WHERE id = $id";
+			$updateProductQuery = $dbh ->prepare($req);
+			$updateProductQuery -> bindParam(":id",$product->getId(),PDO::PARAM_STR);	
+			$updateProductQuery -> bindParam(":Firstname",$product->getName(),PDO::PARAM_STR);
+            $updateProductQuery -> bindParam(":Lastname",$product->getLast(),PDO::PARAM_STR);
+            $updateProductQuery -> bindParam(":Matricule",$product->getMatricule(),PDO::PARAM_STR);
+            $updateProductQuery -> bindParam(":Email",$product->getEmail(),PDO::PARAM_STR);
+			$updateProductQuery->execute();
+
+            $updateProductQuery->execute();
+
 		
+        }
 }
 ?>

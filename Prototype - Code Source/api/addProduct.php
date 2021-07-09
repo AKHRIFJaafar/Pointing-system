@@ -2,7 +2,6 @@
 require_once '../manager/productsManager.php';
 
 $product = new Product();
-$product->setId($_POST["id"]);
 $product->setFirst($_POST["Firstname"]);
 $product->setLast($_POST["Lastname"]);
 $product->setMatricule($_POST["Matricule"]);
