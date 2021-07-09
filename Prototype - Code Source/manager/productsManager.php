@@ -48,20 +48,16 @@ class productsManager {
             $deleteProduct->execute();
         }
 		// update product		
-		public function update($id,$product){
+		public function update($product){
+			$id = $product->getId();
 			$dbh = new PDO("mysql:host=localhost;dbname=formers","root","12345");
 			$req = "UPDATE Former SET Firstname = :Firstname,Lastname = :Lastname,Matricule = :Matricule,Email = :Email WHERE id = $id";
 			$updateProductQuery = $dbh ->prepare($req);
-			$updateProductQuery -> bindParam(":id",$product->getId(),PDO::PARAM_STR);	
 			$updateProductQuery -> bindParam(":Firstname",$product->getName(),PDO::PARAM_STR);
             $updateProductQuery -> bindParam(":Lastname",$product->getLast(),PDO::PARAM_STR);
             $updateProductQuery -> bindParam(":Matricule",$product->getMatricule(),PDO::PARAM_STR);
             $updateProductQuery -> bindParam(":Email",$product->getEmail(),PDO::PARAM_STR);
 			$updateProductQuery->execute();
-
-            $updateProductQuery->execute();
-
-		
         }
 }
 ?>
