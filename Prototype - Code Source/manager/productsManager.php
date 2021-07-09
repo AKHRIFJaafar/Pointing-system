@@ -16,6 +16,9 @@ class productsManager {
 		foreach ($result as $row){
 			$item = new Product();
 			$item->setFirst($row["Firstname"]);
+			$item->setLast($row["Lastname"]);
+			$item->setMatricule($row["Matricule"]);
+			$item->setEmail($row["Email"]);
 			array_push($stack, $item);
 		}
 		return $stack;
@@ -28,10 +31,10 @@ class productsManager {
 
 			$addProductQuery = $dbh ->prepare($req);
 			$addProductQuery -> bindParam(":id",$product->id(),PDO::PARAM_STR);	
-			$addProductQuery -> bindParam(":Firstname",$product->Firstname(),PDO::PARAM_STR);
-            $addProductQuery -> bindParam(":Lastname",$product->Lastname(),PDO::PARAM_STR);
-            $addProductQuery -> bindParam(":Matricule",$product->Matricule(),PDO::PARAM_STR);
-            $addProductQuery -> bindParam(":Email",$product->Email(),PDO::PARAM_STR);
+			$addProductQuery -> bindParam(":Firstname",$product->getName(),PDO::PARAM_STR);
+            $addProductQuery -> bindParam(":Lastname",$product->getLast(),PDO::PARAM_STR);
+            $addProductQuery -> bindParam(":Matricule",$product->getMatricule(),PDO::PARAM_STR);
+            $addProductQuery -> bindParam(":Email",$product->getEmail(),PDO::PARAM_STR);
 			$addProductQuery->execute();
         }
 		

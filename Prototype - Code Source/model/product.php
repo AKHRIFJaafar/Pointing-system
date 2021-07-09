@@ -24,10 +24,10 @@ class Product implements JsonSerializable {
 	// 	$this->fill($data);
 	// }
 		public function id() { return $this->_id; }
-		public function Firstname() { return $this->_Firstname; }
-		public function Lastname() { return $this->_Lastname; }
-		public function Matricule() { return $this->_Matricule; }
-		public function Email() { return $this->_Email; }
+		public function getName() { return $this->_Firstname; }
+		public function getLast() { return $this->_Lastname; }
+		public function getMatricule() { return $this->_Matricule; }
+		public function getEmail() { return $this->_Email; }
 
 
 		public function setId($id){
