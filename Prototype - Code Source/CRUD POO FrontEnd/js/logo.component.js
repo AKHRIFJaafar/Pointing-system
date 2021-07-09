@@ -7,7 +7,6 @@ class Logo extends React.Component {
 
         return (
             <div>
-                <h1>Logo</h1>
                 
             </div>
 

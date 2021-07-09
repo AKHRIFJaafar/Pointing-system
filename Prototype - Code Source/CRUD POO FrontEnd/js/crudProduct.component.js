@@ -74,13 +74,25 @@ class CrudProduct extends React.Component {
         })
 
         return (
-            <div className="container col-7 m-auto">
-                <h1>Gestion Produits</h1>
+            <div className="container">
 
+        <table className="table">
+          <thead className="thead-dark">
+            <tr>
+            
+              <th scope="col">Firstname</th>
+              <th scope="col">Lastname</th>
+              <th scope="col">Matricule</th>
+              <th scope="col">Email</th>
+              <th scope="col"></th>
 
-                <div className="row">
-                    {productsArray}
-                </div>
+            </tr>
+          </thead>
+          <tbody>
+{productsArray}
+          </tbody>
+        </table>
+
                 <form
                     id="form-add"
                     className="form-horizontal"
