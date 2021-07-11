@@ -1,8 +1,8 @@
 <?php
 require_once '../js/productsManager.php';
 
-        $productsManager = null;
+        $getProductsManager = null;
         $getProductsManager = new productsManager();    
-        $getproducts = $getProductsManager->getList();
-        print_r(json_encode($getproducts));
+        $getProducts = $getProductsManager->getList();
+        print_r(json_encode($getProducts));
 ?>

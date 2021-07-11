@@ -1,5 +1,5 @@
 <?php
-require_once('../js/product.php');
+require_once('../js/Product.php');
 
 class productsManager {
 	//get Products
@@ -23,11 +23,11 @@ class productsManager {
 			$dbh = new PDO("mysql:host=localhost;dbname=product","root","12345");
 			$req = "INSERT INTO `products`(`id`,`productname`, `productcolor`) VALUES (:id,:productname,:productcolor)";
 
-			$updateProductQuery = $dbh ->prepare($req);
-			$updateProductQuery -> bindParam(":id",$product->getId(),PDO::PARAM_STR);	
-			$updateProductQuery -> bindParam(":productname",$product->getName(),PDO::PARAM_STR);
-            $updateProductQuery -> bindParam(":productcolor",$product->getColor(),PDO::PARAM_STR);
-			$updateProductQuery->execute();
+			$addProductQuery = $dbh ->prepare($req);
+			$addProductQuery -> bindParam(":id",$product->getId(),PDO::PARAM_STR);	
+			$addProductQuery -> bindParam(":productname",$product->getName(),PDO::PARAM_STR);
+            $addProductQuery -> bindParam(":productcolor",$product->getColor(),PDO::PARAM_STR);
+			$addProductQuery->execute();
         }
 		// delete product
 

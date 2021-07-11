@@ -1,3 +1,4 @@
+//get Products
 $(document).ready(function(){
 var productsList;
 function getall(){
@@ -32,7 +33,7 @@ function getall(){
   }
   getall()
 
-  // Add a Former to database
+  // Add a product to database
 $(".submit").click(function() {
     var ProductName = $(".productname").val();
     var ProductColor = $(".productcolor").val();
@@ -83,7 +84,7 @@ $("body").on("click",".productsList .update-btn",function() {
     })
   })
 
-// Delete a Former to database
+// Delete a product to database
 $("body").on("click",".btn-danger",function(){
     var index = $(this).parents("tr").index();
     $(".productsList .idtd").val(productsList[index]["id"]);
