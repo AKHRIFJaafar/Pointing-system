@@ -1,5 +1,5 @@
 <?php
-require_once '../js/productsManager.php';
+require_once '../manager/productsManager.php';
 
 $product = new Product();
 $product->setName($_POST["productname"]);

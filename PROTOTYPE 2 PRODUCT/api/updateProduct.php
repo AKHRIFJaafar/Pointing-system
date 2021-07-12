@@ -1,10 +1,10 @@
 <?php
-require_once '../js/productsManager.php';
+require_once '../manager/productsManager.php';
 
 $product = new Product;
 $product->setId($_POST["id"]);
-$product->setFirst($_POST["productname"]);
-$product->setLast($_POST["productcolor"]);
+$product->setName($_POST["productname"]);
+$product->setColor($_POST["productcolor"]);
 
 $updateProductsManager = null;
 $updateProductManager =  new productsManager(); 

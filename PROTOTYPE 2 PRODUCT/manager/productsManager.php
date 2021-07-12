@@ -1,5 +1,5 @@
 <?php
-require_once('../js/Product.php');
+require_once('../model/Product.php');
 
 class productsManager {
 	//get Products
@@ -11,8 +11,8 @@ class productsManager {
 		foreach ($result as $row){
 			$item = new Product();
 			$item->setId($row["id"]);
-			$item->setFirst($row["productname"]);
-			$item->setLast($row["productcolor"]);
+			$item->setName($row["productname"]);
+			$item->setColor($row["productcolor"]);
 			array_push($stack, $item);
 		}
 		return $stack;

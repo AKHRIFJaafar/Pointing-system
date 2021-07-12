@@ -37,7 +37,6 @@ function getall(){
 $(".submit").click(function() {
     var ProductName = $(".productname").val();
     var ProductColor = $(".productcolor").val();
-  rroduct
     $.ajax({
       url:"api/addProduct.php",
       method:"POST",

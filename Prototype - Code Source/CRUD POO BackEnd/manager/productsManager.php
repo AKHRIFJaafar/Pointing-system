@@ -2,12 +2,7 @@
 require_once('../model/product.php');
 
 class productsManager {
-	// public function get($id){
-	// 	$req = "SELECT * FROM former WHERE id=$id";
-	// 	$row = $this->executerRequete($req, array($id))->fetch();
-	// 	return new product($row);
-	// }
-	//get Products
+
 	public function getList(){
 		$dbh = new PDO("mysql:host=localhost;dbname=formers","root","12345");
 		$stack = array();

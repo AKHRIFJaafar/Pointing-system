@@ -1,5 +1,5 @@
 <?php
-require_once '../js/productsManager.php';
+require_once '../manager/productsManager.php';
 
         $getProductsManager = null;
         $getProductsManager = new productsManager();    
