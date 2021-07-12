@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+ <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRODUCT MANAGER </title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+  <div class="container">
+    <div class="alert alert alert-primary" role="alert">
+      <h4 class="text-primary text-center">PRODUCTS MANAGER</h4>
+    </div>
+    <div class="col-3 mb-3 mt-3">
+      <button type="button" class="btn btn-primary add-btn" data-toggle="modal" data-target="#exampleModalCenter" id="addnewbtn">ADD PRODUCT</button>
+    </div>
+    <!-- ADD Model -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">ADD PRODUCT</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form class="add-form">
+              <div class="form-row">
+                <div class="col-12">
+                  <label for="inputName4">Product Name</label>
+                  <input type="text" class="form-control productname" id="inputName4" placeholder="Product name">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-12">
+                  <label for="inputLast4">Product Color</label>
+                  <input type="text" class="form-control productcolor"  id="inputLast4" placeholder="Product color">
+                </div>
+              </div>
+              
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary submit">ADD PRODUCT</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- Edit a Former -->
+    <div class="modal fade " id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered show-edit" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">EDIT PRODUCT</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form class="edit-form">
+              <input type="hidden" name="sid" value="" class="sid">
+              <div class="form-row">
+                <div class="col-12">
+                  <label for="inputName4">Product Name</label>
+                  <input type="text" class="form-control productname" id="inputName4" placeholder="Product name">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-12">
+                  <label for="inputLast4">Product Color</label>
+                  <input type="text" class="form-control productcolor"  id="inputLast4" placeholder="Product color">
+                </div>
+              </div>
+              
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success save-product">SAVE EDIT</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- table -->
+<table class="table" id="userstable">
+  <thead>
+    <tr>
+      <th scope="col">Product Name</th>
+      <th scope="col">Product Color</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody class="productsList">
+
+  </tbody>
+  </table>
+
+
+
+
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    
+    <script src="js/productApp.js"></script>
+
+  </body>
+</html>

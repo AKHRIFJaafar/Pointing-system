@@ -1,0 +1,1 @@
+ReactDOM.render(<CrudProduct />, document.getElementById('app'));
