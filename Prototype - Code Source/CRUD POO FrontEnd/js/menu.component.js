@@ -2,11 +2,8 @@ class Menu extends React.Component {
     constructor(props) {
         super(props)
     }
-
     render() {
-
-        return (
-          
+        return (     
         <nav className="main-header navbar navbar-expand navbar-white navbar-light">
           {/* Left navbar links */}
           <ul className="navbar-nav">
@@ -14,10 +11,7 @@ class Menu extends React.Component {
               <a className="nav-link" data-widget="pushmenu" href="#" role="button"><i className="fas fa-bars" /></a>
             </li>
             <li className="nav-item d-none d-sm-inline-block">
-              <a href="../../index3.html" className="nav-link">Home</a>
-            </li>
-            <li className="nav-item d-none d-sm-inline-block">
-              <a href="#" className="nav-link">Contact</a>
+              <a href="ouvriers.html" className="nav-link">Ouvriers</a>
             </li>
           </ul>
           {/* Right navbar links */}
