@@ -28,9 +28,11 @@ class App extends React.Component {
           <section className="content">
             {/* Default box */}
             <div className="card">
-              <div className="card-header">
-                <h3 className="card-title">Tous Ouvriers</h3>
-
+              <div className="card-header row">
+                <h3 className="card-title col-6">Tous Ouvriers</h3>
+                <div className="col-6 text-right">
+                    <button type="button" className="btn btn-primary add-btn" data-toggle="modal" data-target="#exampleModalCenter" id="addnewbtn">AJOUTER</button>
+                </div>
               </div>
               <div className="card-body">
                 <CrudProduct />
@@ -50,7 +52,7 @@ class App extends React.Component {
           <div className="float-right d-none d-sm-block">
             <b>Version</b> 3.1.0
           </div>
-          <strong>Copyright © 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+          <strong>Copyright © 2020-2021 <a href="https://solicode.co">Solicode</a>.</strong> All rights reserved.
         </footer>
         {/* Control Sidebar */}
         <aside className="control-sidebar control-sidebar-dark">
