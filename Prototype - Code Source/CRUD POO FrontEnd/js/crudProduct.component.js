@@ -16,7 +16,7 @@ class CrudProduct extends React.Component {
 
         // affichage de données par Ajax
 
-        $.getJSON("api/getProduct.php",
+        $.getJSON("/api/getProduct.php",
             function (data) {
                 this.setState({ productsArray: data });
             }.bind(this))
