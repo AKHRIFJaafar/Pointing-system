@@ -29,8 +29,8 @@ class CrudProduct extends React.Component {
       url: "../api/addProduct.php",
       method: "POST",
       data: {
-        productname : InputName.value,
-        productcolor : InputColor.value,
+        productname : addName.value,
+        productcolor : addColor.value,
       },
       success: function (data) {
         this.chargementDonnees()
@@ -60,9 +60,9 @@ class CrudProduct extends React.Component {
       url: "api/updateProduct.php",
       method: "POST",
       data: {
-        id: i,
-        productname: InputName.value,
-        productcolor: InputColor.value,
+        id: id,
+        productname: updateName.value,
+        productcolor: updateColor.value,
       },
       success: function (data) {
         this.chargementDonnees()
@@ -110,13 +110,13 @@ class CrudProduct extends React.Component {
                   <div className="form-row">
                     <div className="col-12">
                       <label htmlFor="inputName4">Product Name</label>
-                      <input type="text" className="form-control productname" id="InputName" placeholder="Product name" />
+                      <input type="text" className="form-control productname" id="addName" placeholder="Product name" />
                     </div>
                   </div>
                   <div className="form-row">
                     <div className="col-12">
                       <label htmlFor="inputLast4">Product Color</label>
-                      <input type="text" className="form-control productcolor" id="InputColor" placeholder="Product color" />
+                      <input type="text" className="form-control productcolor" id="addColor" placeholder="Product color" />
                     </div>
                     <button type="submit" className="btn btn-primary submit">ADD PRODUCT</button>
                   </div>
@@ -129,7 +129,7 @@ class CrudProduct extends React.Component {
         </div>
         {/* Edit a Former */}
         <div className="modal fade " id="exampleModalCenter1" tabIndex={-1} role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-          <div className="modal-dialog modal-dialog-centered show-edit" role="document">
+          <div className="modal-dialog modal-dialog-centered" role="document">
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title" id="exampleModalCenterTitle">EDIT PRODUCT</h5>
@@ -138,18 +138,18 @@ class CrudProduct extends React.Component {
                 </button>
               </div>
               <div className="modal-body">
-                <form className="edit-form">
+                <form className="edit-form"  onSubmit={this.add.bind(this)} >
                   <input type="hidden" name="id" defaultValue className="id" />
                   <div className="form-row">
                     <div className="col-12">
                       <label htmlFor="inputName4">Product Name</label>
-                      <input type="text" className="form-control productname" id="InputName" placeholder="Product name" />
+                      <input type="text" className="form-control productname" id="updateName" placeholder="Product name" />
                     </div>
                   </div>
                   <div className="form-row">
                     <div className="col-12">
                       <label htmlFor="inputLast4">Product Color</label>
-                      <input type="text" className="form-control productcolor" id="InputColor" placeholder="Product color" />
+                      <input type="text" className="form-control productcolor" id="updateColor" placeholder="Product color" />
                     </div>
                   </div>
                   <button type="submit" className="btn btn-success">SAVE EDIT</button>
