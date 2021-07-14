@@ -34,6 +34,12 @@ class SideBar extends React.Component {
                       <p>Ouvriers</p>
                     </a>
                   </li>
+                  <li className="nav-item">
+                    <a href="pointage.html" className="nav-link">
+                      <i className="nav-icon fas fa-tachometer-alt" />
+                      <p>Pointage</p>
+                    </a>
+                  </li>
                 </ul>
               </nav>
               {/* /.sidebar-menu */}
