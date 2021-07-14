@@ -1,10 +1,10 @@
 // Application
-class CrudProduct extends React.Component {
+class CrudOuvrier extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            productsArray: []
+            ouvriersArray: []
         };
     }
     componentDidMount() {
@@ -12,28 +12,31 @@ class CrudProduct extends React.Component {
     }
     chargementDonnees() {
 
-        var productsArray = null;
+        var ouvriersArray = null;
 
         // affichage de données par Ajax
 
-        $.getJSON("/api/getProduct.php",
+        $.getJSON("/api/getOuvriers.php",
             function (data) {
-                this.setState({ productsArray: data });
+                this.setState({ ouvriersArray: data });
             }.bind(this))
             .fail(function (jqXHR, textStatus, errorThrown) {
                 console.log(errorThrown);
             });
     }
-    //add product
-    addproduct(e) {
+    //add ouvrier
+    addOuvrier(e) {
         $.ajax({
-            url: "/api/addProduct.php",
+            url: "/api/addOuvrier.php",
             method: "POST",
             data: {
-                Firstname: addFirstname.value,
-                Lastname: addLastname.value,
-                Matricule: addMatricule.value,
-                Email: addEmail.value,
+                nomOuvrier: addNomOuvrier.value,
+                numCIN: addNumCIN.value,
+                prixHeure: addPrixHeure.value,
+                categorie: addCategorie.value,
+                telephone: addTelephone.value,
+                nomChantier: addNomChantier.value,
+
             },
             success: function (data) {
                 this.chargementDonnees()
@@ -43,13 +46,13 @@ class CrudProduct extends React.Component {
         })
         e.preventDefault();
     }
-    // Remove product
-    removeproduct(i) {
+    // Remove ouvrier
+    removeOuvrier(i) {
         $.ajax({
-            url: "/api/deleteProduct.php",
+            url: "/api/deleteOuvrier.php",
             method: "POST",
             data: {
-                id: i
+                idOuvrier: i
             },
             success: function (data) {
                 //   $(this).parent().remove();
@@ -58,20 +61,23 @@ class CrudProduct extends React.Component {
         })
 
     }
-    //update product
-    updateproduct() {
+    //update ouvrier
+    updateOuvrier(i) {
         $.ajax({
-            url: "api/updateProduct.php",
+            url: "api/updateOuvrier.php",
             method: "POST",
             data: {
-                id : id,
-                Firstname: Firstname.value,
-                Lastname: Lastname.value,
-                Matricule: Matricule.value,
-                Email: Email.value,
+                idOuvrier : i,
+                nomOuvrier : "bonjour",
+                numCIN : updateNumCIN.value,
+                prixHeure : updatePrixHeure.value,
+                categorie : updateCategorie.value,
+                telephone : updateTelephone.value,
+                nomChantier : updateNomChantier.value,
             },
             success: function (data) {
                 this.chargementDonnees()
+                $("#exampleModalCenter1").modal('hide');
                 console.log(data)
             }.bind(this)
         })
@@ -88,13 +94,13 @@ class CrudProduct extends React.Component {
     }
 
     render() {
-        let productsArray = this.state.productsArray.map((product) => {
+        let ouvriersArray = this.state.ouvriersArray.map((ouvrier) => {
             return (
-                <Product
-                    key={product.id}
-                    product={product}
-                    onClickClose={this.removeproduct.bind(this, product.id)}
-                    onClickUpdate= {this.updateproduct.bind(this,product.id)}
+                <Ouvrier
+                    key={ouvrier.idOuvrier}
+                    ouvrier={ouvrier}
+                    onClickClose={this.removeOuvrier.bind(this, ouvrier.idOuvrier)}
+                    onClickUpdate= {this.updateOuvrier.bind(this,ouvrier.idOuvrier)}
                 />
             )
         })
@@ -115,31 +121,47 @@ class CrudProduct extends React.Component {
                                 <form
                                     id="form-add"
                                     className="form-horizontal"
-                                    onSubmit={this.addproduct.bind(this)}>
+                                    onSubmit={this.addOuvrier.bind(this)}>
+
+
                                     <div className="form-row">
                                         <div className="col-12">
-                                            <label htmlFor="inputName4">First Name</label>
-                                            <input type="text" className="form-control Firstname" id="addFirstname" placeholder="First name" />
+                                            <label htmlFor="inputName4">Nom Ouvrier</label>
+                                            <input type="text" className="form-control nomOuvrier" id="addNomOuvrier" placeholder="Entrer le nom" />
                                         </div>
                                     </div>
                                     <div className="form-row">
                                         <div className="col-12">
-                                            <label htmlFor="inputLast4">Last Name</label>
-                                            <input type="text" className="form-control Lastname" id="addLastname" placeholder="Last name" />
+                                            <label htmlFor="inputLast4">N° CIN</label>
+                                            <input type="text" className="form-control numCIN" id="addNumCIN" placeholder="Enter le CIN" />
                                         </div>
                                     </div>
 
                                     <div className="form-row">
                                         <div className="form-group col-12">
-                                            <label htmlFor="inputMatricule4">Matricule</label>
-                                            <input type="number" className="form-control Matricule" id="addMatricule" placeholder="Matricule" />
+                                            <label htmlFor="inputMatricule4">Prix Heure</label>
+                                            <input type="number" className="form-control prixHeure" id="addPrixHeure" placeholder="Enter le prix" />
                                         </div>
                                     </div>
 
                                     <div className="form-row">
                                         <div className="form-group col-12">
-                                            <label htmlFor="inputEmail4">Email</label>
-                                            <input type="email" className="form-control Email" id="addEmail" placeholder="Email" />
+                                            <label htmlFor="inputEmail4">Catégorie</label>
+                                            <input type="type" className="form-control categorie" id="addCategorie" placeholder="Enter catégorie" />
+                                        </div>
+                                    </div>
+
+                                    <div className="form-row">
+                                        <div className="form-group col-12">
+                                            <label htmlFor="inputEmail4">Téléphone</label>
+                                            <input type="number" className="form-control telephone" id="addTelephone" placeholder="Enter téléphone" />
+                                        </div>
+                                    </div>
+
+                                    <div className="form-row">
+                                        <div className="form-group col-12">
+                                            <label htmlFor="inputEmail4">Nom Chantier</label>
+                                            <input type="type" className="form-control nomChantier" id="addNomChantier" placeholder="Choisir le chantier" />
                                         </div>
                                     </div>
 
@@ -157,8 +179,12 @@ class CrudProduct extends React.Component {
                     </div>
                 </div>
 
-                                {/* Edit Form */}
-                                <div className="modal fade" id="exampleModalCenter" tabIndex={-1} role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+
+
+
+
+                {/* Edit Model */}
+                <div className="modal fade" id="exampleModalCenter1" tabIndex={-1} role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div className="modal-dialog modal-dialog-centered" role="document">
                         <div className="modal-content">
                             <div className="modal-header">
@@ -169,39 +195,55 @@ class CrudProduct extends React.Component {
                             </div>
                             <div className="modal-body">
                                 <form
-                                    id="form-add"
+                                    id="form-edit"
                                     className="form-horizontal"
-                                    onSubmit={this.updateproduct.bind(this)}>
+                                    onSubmit={this.updateOuvrier.bind(this)}>
+
+
                                     <div className="form-row">
                                         <div className="col-12">
-                                            <label htmlFor="inputName4">First Name</label>
-                                            <input type="text" className="form-control Firstname" id="addFirstname" placeholder="First name" />
+                                            <label htmlFor="inputName4">Nom Ouvrier</label>
+                                            <input type="text" className="form-control nomOuvrier" id="updateNomOuvrier" placeholder="Entrer le nom" />
                                         </div>
                                     </div>
                                     <div className="form-row">
                                         <div className="col-12">
-                                            <label htmlFor="inputLast4">Last Name</label>
-                                            <input type="text" className="form-control Lastname" id="addLastname" placeholder="Last name" />
+                                            <label htmlFor="inputLast4">N° CIN</label>
+                                            <input type="text" className="form-control numCIN" id="updateNumCIN" placeholder="Enter le CIN" />
                                         </div>
                                     </div>
 
                                     <div className="form-row">
                                         <div className="form-group col-12">
-                                            <label htmlFor="inputMatricule4">Matricule</label>
-                                            <input type="number" className="form-control Matricule" id="addMatricule" placeholder="Matricule" />
+                                            <label htmlFor="inputMatricule4">Prix Heure</label>
+                                            <input type="number" className="form-control prixHeure" id="updatePrixHeure" placeholder="Enter le prix" />
                                         </div>
                                     </div>
 
                                     <div className="form-row">
                                         <div className="form-group col-12">
-                                            <label htmlFor="inputEmail4">Email</label>
-                                            <input type="email" className="form-control Email" id="addEmail" placeholder="Email" />
+                                            <label htmlFor="inputEmail4">Catégorie</label>
+                                            <input type="type" className="form-control categorie" id="updateCategorie" placeholder="Enter catégorie" />
+                                        </div>
+                                    </div>
+
+                                    <div className="form-row">
+                                        <div className="form-group col-12">
+                                            <label htmlFor="inputEmail4">Téléphone</label>
+                                            <input type="number" className="form-control telephone" id="updateTelephone" placeholder="Enter téléphone" />
+                                        </div>
+                                    </div>
+
+                                    <div className="form-row">
+                                        <div className="form-group col-12">
+                                            <label htmlFor="inputEmail4">Nom Chantier</label>
+                                            <input type="type" className="form-control nomChantier" id="updateNomChantier" placeholder="Choisir le chantier" />
                                         </div>
                                     </div>
 
                                     <div className="input-group text-right">
                                         <div className="input-group-btn">
-                                        <button type="submit" className="btn btn-primary submit ">AJOUTER OUVRIER</button>
+                                        <button type="submit" className="btn btn-success submit ">ENREGISTER EDIT</button>
  
                                         </div>
                                     </div>
@@ -214,13 +256,14 @@ class CrudProduct extends React.Component {
                 </div>
 
 
-                <table className="table table-hover">
+
+               <table className="table table-hover">
                     <thead className="thead">
                         <tr>
-                            <th scope="col">Firstname</th>
-                            <th scope="col">Lastname</th>
-                            <th scope="col">Matricule</th>
-                            <th scope="col">Email</th>
+                            <th scope="col">Nom Comlet</th>
+                            <th scope="col">N° Téléphone</th>
+                            <th scope="col">Prix Heure</th>
+                            <th scope="col">Catégorie</th>
                             <th scope="col"></th>
                             <th scope="col"></th>
 
@@ -228,7 +271,7 @@ class CrudProduct extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {productsArray}
+                        {ouvriersArray}
                     </tbody>
                 </table>
             </div>

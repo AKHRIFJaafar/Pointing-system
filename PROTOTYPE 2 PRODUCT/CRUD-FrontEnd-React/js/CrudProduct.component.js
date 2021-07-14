@@ -60,7 +60,7 @@ class CrudProduct extends React.Component {
       url: "api/updateProduct.php",
       method: "POST",
       data: {
-        id: id,
+        id: i,
         productname: updateName.value,
         productcolor: updateColor.value,
       },

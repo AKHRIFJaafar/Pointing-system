@@ -35,7 +35,7 @@ class App extends React.Component {
                 </div>
               </div>
               <div className="card-body">
-                <CrudProduct />
+                <CrudOuvrier />
               </div>
               {/* /.card-body */}
               <div className="card-footer">
