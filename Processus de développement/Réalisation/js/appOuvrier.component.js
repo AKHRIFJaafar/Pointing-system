@@ -1,4 +1,4 @@
-class App extends React.Component {
+class AppOuvrier extends React.Component {
     constructor(props) {
         super(props)
     }
@@ -9,7 +9,7 @@ class App extends React.Component {
             <div>   
       {/* Site wrapper */}
       <div className="wrapper">
-          <Menu />
+          <MenuOuvrier />
 
           <SideBar />
 

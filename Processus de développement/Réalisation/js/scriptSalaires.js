@@ -1,0 +1,1 @@
+ReactDOM.render(<AppSalaires />, document.getElementById('app'));

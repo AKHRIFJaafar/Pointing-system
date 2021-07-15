@@ -1,4 +1,4 @@
-class AppPointage extends React.Component {
+class AppAccueil extends React.Component {
     constructor(props) {
         super(props)
     }
@@ -9,7 +9,7 @@ class AppPointage extends React.Component {
             <div>   
       {/* Site wrapper */}
       <div className="wrapper">
-          <MenuPointage />
+          <MenuAccueil />
 
           <SideBar />
 
