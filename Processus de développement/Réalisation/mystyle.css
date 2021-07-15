@@ -1,3 +1,19 @@
 .text-black{
     color:black !important
 }
+.btn-primary{
+    background-color: #3751FF !important;
+    border-color: #3751FF !important;
+}
+.col-2 div input:hover{
+    border-color: #3751FF;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator{
+
+    border-color: #3751FF;
+}
+input:hover{
+    border-color: #3751FF;
+    color: #3751FF;
+}
