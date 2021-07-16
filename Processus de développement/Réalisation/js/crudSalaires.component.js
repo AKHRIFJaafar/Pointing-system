@@ -96,7 +96,7 @@ class CrudSalaires extends React.Component {
     render() {
         let ouvriersArray = this.state.ouvriersArray.map((ouvrier) => {
             return (
-                <Ouvrier
+                <Salaires
                     key={ouvrier.idOuvrier}
                     ouvrier={ouvrier}
                     onClickClose={this.removeOuvrier.bind(this, ouvrier.idOuvrier)}

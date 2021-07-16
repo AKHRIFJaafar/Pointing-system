@@ -35,7 +35,7 @@ class AppSalaires extends React.Component {
                       <option value={2}>7 Derniers jours</option>
                     </select>
                   </div>
-                  <div className="col-2">
+                  <div className="col-3">
                     <input type="date" className="form-control " placeholder="" />
                   </div>
                   <div className=" d-flex align-center">
@@ -43,7 +43,7 @@ class AppSalaires extends React.Component {
                       <path fillRule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
                     </svg>
                   </div>
-                  <div className="col-2">
+                  <div className="col-3">
                     <input type="date" className="form-control " placeholder="" />
                   </div>
 
@@ -55,7 +55,7 @@ class AppSalaires extends React.Component {
             <section className="content">
               {/* Default box */}
               <div className="card">
-                <div className="card-header row">
+                <div className="card-header row align-items-center">
                   <h3 className="card-title col-6">Tous Ouvriers</h3>
                   <div className="col-6 text-right">
                     <button type="button" className="btn btn-primary" data-toggle="modal" id="imprimerbtn">IMPRIMER</button>
@@ -69,26 +69,9 @@ class AppSalaires extends React.Component {
               {/* /.card */}
             </section>
             {/* /.content */}
+            
           </div>
-          {/* /.content-wrapper */}
-          <footer className="main-footer">
-            <div className="float-right d-none d-sm-block">
-              <b>Version</b> 3.1.0
-            </div>
-            <strong>Copyright © 2020-2021 <a href="https://solicode.co">Solicode</a>.</strong> All rights reserved.
-          </footer>
-          {/* Control Sidebar */}
-          <aside className="control-sidebar control-sidebar-dark">
-            {/* Control sidebar content goes here */}
-          </aside>
-          {/* /.control-sidebar */}
         </div>
-
-
-
-
-
-
       </div>
 
     )

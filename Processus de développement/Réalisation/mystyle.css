@@ -10,10 +10,16 @@
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator{
-
     border-color: #3751FF;
 }
-input:hover{
+input:hover:focus{
     border-color: #3751FF;
     color: #3751FF;
+}
+.custom-select:hover{
+    border-color: #3751FF;
+    color: #3751FF;
+}
+.custom-select:focus{
+border-color: #3751FF !important;
 }

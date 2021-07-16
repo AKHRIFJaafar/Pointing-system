@@ -28,7 +28,7 @@ class AppOuvrier extends React.Component {
           <section className="content">
             {/* Default box */}
             <div className="card">
-              <div className="card-header row">
+              <div className="card-header row align-items-center">
                 <h3 className="card-title col-6">Tous Ouvriers</h3>
                 <div className="col-6 text-right">
                     <button type="button" className="btn btn-primary add-btn" data-toggle="modal" data-target="#exampleModalCenter" id="addnewbtn">AJOUTER</button>

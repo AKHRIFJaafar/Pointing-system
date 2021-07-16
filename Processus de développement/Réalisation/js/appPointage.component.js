@@ -24,17 +24,31 @@ class AppPointage extends React.Component {
               </div>
             </div>{/* /.container-fluid */}
           </section>
+          <section className="content">
+              {/* Default box */}
+              <div className="card ">
+                <div className="card-header row justify-content-end align-items-center">
+                  <div className="input-group col-3 mr-3 ">
+                    <select className="custom-select" id="inputGroupSelect04" aria-label="">
+                      <option selected>Aujourd'hui</option>
+                      <option value={1}>Hier</option>
+                      <option value={2}>Avant hier</option>
+                    </select>
+                  </div>
+
+                </div>
+              </div>
+              {/* /.card */}
+            </section>
           {/* Main content */}
           <section className="content">
             {/* Default box */}
             <div className="card">
-              <div className="card-header row">
+              <div className="card-header row align-items-center">
                 <h3 className="card-title col-6">Tous Ouvriers</h3>
-                <div className="col-6 text-right">
-                    <button type="button" className="btn btn-primary add-btn" data-toggle="modal" data-target="#exampleModalCenter" id="addnewbtn">AJOUTER</button>
-                </div>
               </div>
               <div className="card-body">
+                <CrudPointage />
               </div>
               {/* /.card-body */}
               <div className="card-footer">
