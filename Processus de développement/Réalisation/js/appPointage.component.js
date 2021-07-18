@@ -50,10 +50,6 @@ class AppPointage extends React.Component {
               <div className="card-body">
                 <CrudPointage />
               </div>
-              {/* /.card-body */}
-              <div className="card-footer">
-                Footer
-              </div>
               {/* /.card-footer*/}
             </div>
             {/* /.card */}

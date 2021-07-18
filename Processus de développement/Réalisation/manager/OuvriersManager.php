@@ -10,6 +10,7 @@ class OuvriersManager {
 		$req = "SELECT * FROM ouvriers";
 		$result = $dbh->query($req)->fetchAll();
 		foreach ($result as $row){
+
 			$item = new Ouvrier();
 			$item->setIdOuvrier($row["idOuvrier"]);
 			$item->setNomOuvrier($row["nomOuvrier"]);

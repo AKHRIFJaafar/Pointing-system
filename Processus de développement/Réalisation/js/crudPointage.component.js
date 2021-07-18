@@ -109,7 +109,7 @@ class CrudPointage extends React.Component {
                <table className="table table-hover">
                     <thead className="thead">
                         <tr>
-                            <th scope="col">Nom Comlet</th>
+                            <th scope="col">Nom Complet</th>
                             <th scope="col">N° Téléphone</th>
                             <th scope="col">Nombre Heure</th>
                             <th scope="col">Heure Pointage</th>

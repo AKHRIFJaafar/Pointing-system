@@ -12,7 +12,7 @@ class Pointage extends React.Component {
               </td>
               <td>{this.props.pointage.telephone}</td>
               <td>{this.props.pointage.nombreHeure}</td>
-              <td>{this.props.pointage.nomOuvrier}</td>
+              <td>{new Date(this.props.pointage.heurePointage).getUTCHours()+1}:00</td>
               <td></td>
               <td>
               <svg xmlns="http://www.w3.org/2000/svg" width={22} height={22} fill="currentColor" className="bi bi-check-square text-success" viewBox="0 0 16 16">

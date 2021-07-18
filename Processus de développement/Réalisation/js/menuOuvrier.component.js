@@ -4,9 +4,9 @@ class MenuOuvrier extends React.Component {
   }
   render() {
       return (     
-      <nav className="main-header navbar navbar-expand navbar-light navbar-light">
+      <nav className="main-header navbar navbar-expand navbar-light navbar-light d-flex justify-content-between align-items-center" >
         {/* Left navbar links */}
-        <div className="col-md-9 d-flex">
+        <div className="d-flex">
         <ul className="navbar-nav" >
           <li className="nav-item">
             <a className="nav-link text-black" data-widget="pushmenu" href="#" role="button"><i className="fas fa-bars" /></a>
