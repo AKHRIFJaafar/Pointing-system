@@ -38,10 +38,6 @@ class AppOuvrier extends React.Component {
                 <CrudOuvrier />
               </div>
               {/* /.card-body */}
-              <div className="card-footer">
-                Footer
-              </div>
-              {/* /.card-footer*/}
             </div>
             {/* /.card */}
           </section>

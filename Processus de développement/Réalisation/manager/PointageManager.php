@@ -7,7 +7,7 @@ class PointageManager {
 	public function getList(){
 		$dbh = new PDO("mysql:host=localhost;dbname=systeme-pointage","root","12345");
 		$stack = array();
-		$req = "SELECT * FROM pointage LEFT JOIN ouvriers ON pointage.idOuvrier = ouvriers.idOuvrier ORDER BY pointage.idPointage";
+		$req = "SELECT * FROM pointage RIGHT OUTER JOIN ouvriers ON pointage.idOuvrier = ouvriers.idOuvrier ORDER BY pointage.idPointage";
 
 
 		$result = $dbh->query($req)->fetchAll();

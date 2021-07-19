@@ -84,15 +84,39 @@ class CrudPointage extends React.Component {
         e.preventDefault();
     }
 
-
-
-
-
-
+    markDone(i, status) {
+        if (status != 1) {
+          $.ajax({
+            url: "apiPointage/updatePointage.php",
+            method: "POST",
+            data: {
+              idPointage: i,
+              presence: 1,
+              heurePointage: new Date(this.props.pointage.heurePointage).getUTCHours(),
+            },
+            success: function (data) {
+              this.chargementDonnees()
+              console.log(data)
+            }.bind(this)
+          })
+        } else {
+          $.ajax({
+            url: "apiPointage/updatePointage.php",
+            method: "POST",
+            data: {
+              idPointage: i,
+              presnece: 0
+            },
+            success: function (data) {
+              this.chargementDonnees()
+              console.log(data)
+            }.bind(this)
+          })
+        }
+      }
     onChangeInput(e) {
         // this.setState({value: e.target.value})
     }
-
     render() {
         let pointageArray = this.state.pointageArray.map((pointage) => {
             return (
@@ -101,6 +125,7 @@ class CrudPointage extends React.Component {
                     pointage={pointage}
                     onClickClose={this.removePointage.bind(this, pointage.idPointage)}
                     onClickUpdate= {this.updatePointage.bind(this,pointage.idPointage)}
+                    PointerOuvrier={this.markDone.bind(this,pointage.idPointage, pointage.presence)}
                 />
             )
         })
