@@ -1,16 +1,13 @@
 <?php
-require_once (__DIR__.'/../manager/OuvriersManager.php');
+require_once (__DIR__.'/../manager/PointageManager.php');
 
-$ouvrier = new Ouvrier;
-$ouvrier->setIdOuvrier($_POST["idOuvrier"]);
-$ouvrier->setNomOuvrier($_POST["nomOuvrier"]);
-$ouvrier->setNumCIN($_POST["numCIN"]);
-$ouvrier->setPrixHeure($_POST["prixHeure"]);
-$ouvrier->setCategorie($_POST["categorie"]);
-$ouvrier->setTelephone($_POST["telephone"]);
-$ouvrier->setNomChantier($_POST["nomChantier"]);
+$pointage = new Pointage;
+$pointage->setPresence($_POST["presence"]);
+$pointage->setHeurePointage($_POST["heurePointage"]);
 
-$updateOuvriersManager = null;
-$updateOuvrierManager =  new OuvriersManager(); 
-$updateOuvrierQuery = $updateOuvrierManager->update($ouvrier);
+
+
+$updatePointagesManager = null;
+$updatePointageManager =  new PointageManager(); 
+$updatePointageQuery = $updatePointageManager->update($pointage);
 ?>
