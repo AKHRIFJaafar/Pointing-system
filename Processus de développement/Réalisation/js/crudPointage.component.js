@@ -32,11 +32,13 @@ class CrudPointage extends React.Component {
             method: "POST",
             data: {
               idPointage: i,
-              presence: 1
+              presence: 1,
+              nombreHeure:8,
+
+
             },
             success: function (data) {
               this.chargementDonnees()
-              console.log(data)
             }.bind(this)
           })
         } else {
@@ -49,7 +51,6 @@ class CrudPointage extends React.Component {
             },
             success: function (data) {
               this.chargementDonnees()
-              console.log(data)
             }.bind(this)
           })
         }
@@ -61,12 +62,11 @@ class CrudPointage extends React.Component {
         // this.setState({value: e.target.value})
     }
     render() {
-        let pointageArray = this.state.pointageArray.map((pointage, idPointage) => {
+        let pointageArray = this.state.pointageArray.map((pointage) => {
             return (
                 <Pointage
                     key={pointage.idPointage}
                     pointage={pointage}
-                    done={pointage.presence}
                     onClickPointer={this.Pointer.bind(this, pointage.idPointage, pointage.presence)}
                     />
             )
@@ -77,7 +77,6 @@ class CrudPointage extends React.Component {
                     <thead className="thead">
                         <tr>
                             <th scope="col">Nom Complet</th>
-                            <th scope="col">N° Téléphone</th>
                             <th scope="col">Nombre Heure</th>
                             <th scope="col">Heure Pointage</th>
                             <th scope="col"></th>

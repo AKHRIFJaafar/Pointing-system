@@ -38,8 +38,8 @@ class Pointage implements JsonSerializable {
 		public function getPresence() { return $this->_presence; }
 
 
-		public function setIdPointage($idOuvrier){
-			$this->_idOuvrier = (int) $idOuvrier;
+		public function setIdPointage($idPointage){
+			$this->_idPointage = (int) $idPointage;
 		}
 		
 		public function setIdOuvrier($idOuvrier){

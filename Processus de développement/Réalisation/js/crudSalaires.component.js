@@ -257,14 +257,14 @@ class CrudSalaires extends React.Component {
 
 
 
-               <table className="table table-hover">
-                    <thead className="thead">
+               <table className="table table-striped">
+                    <thead className="thead text-center">
                         <tr>
-                            <th scope="col">Nom Comlet</th>
-                            <th scope="col">Catégorie</th>
-                            <th scope="col">Prix Heure</th>
-                            <th scope="col">Nombre Jour</th>
-                            <th scope="col">Total</th>
+                            <th scope="col">Nom d'ouvrier</th>
+                            <th scope="col">Métier</th>
+                            <th scope="col">Prix d'heure</th>
+                            <th scope="col">Nombre de jour</th>
+                            <th scope="col">Salaire Net</th>
                         </tr>
                     </thead>
                     <tbody>
