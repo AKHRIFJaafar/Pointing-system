@@ -60,7 +60,6 @@ class CrudPointage extends React.Component {
     onChangeInput(e) {
         // this.setState({value: e.target.value})
     }
-
     render() {
         let pointageArray = this.state.pointageArray.map((pointage, idPointage) => {
             return (
