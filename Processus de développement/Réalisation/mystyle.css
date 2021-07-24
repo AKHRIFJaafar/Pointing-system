@@ -23,3 +23,17 @@ input:hover:focus{
 .custom-select:focus{
 border-color: #3751FF !important;
 }
+
+/* pointage style */
+.ouvrier {
+    padding: 20px;
+    margin: 20px;
+  }
+  
+  .ouvrier-success {
+    background: #5cb85c;
+    color: #fff;
+  }
+    .ouvrier-info {
+  background-color: #f2f2f2;
+  }

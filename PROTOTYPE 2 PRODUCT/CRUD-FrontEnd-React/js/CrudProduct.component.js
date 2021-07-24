@@ -82,7 +82,7 @@ class CrudProduct extends React.Component {
           key = {product.id}
           product = {product}
           onClickClose={this.delete.bind(this, product.id)}
-          onClickproduct={this.update.bind(this, product.id)}
+          onClickproduct={this.update.bind(this, product)}
         />
       )
     })
@@ -138,7 +138,7 @@ class CrudProduct extends React.Component {
                 </button>
               </div>
               <div className="modal-body">
-                <form className="edit-form"  onSubmit={this.add.bind(this)} >
+                <form className="edit-form"  onSubmit={this.update.bind(this)} >
                   <input type="hidden" name="id" defaultValue className="id" />
                   <div className="form-row">
                     <div className="col-12">

@@ -38,10 +38,6 @@ class AppOuvrier extends React.Component {
                 <CrudOuvrier />
               </div>
               {/* /.card-body */}
-              <div className="card-footer">
-                Footer
-              </div>
-              {/* /.card-footer*/}
             </div>
             {/* /.card */}
           </section>
@@ -50,7 +46,7 @@ class AppOuvrier extends React.Component {
         {/* /.content-wrapper */}
         <footer className="main-footer">
           <div className="float-right d-none d-sm-block">
-            <b>Version</b> 3.1.0
+            <b>Version</b> 1.1.0
           </div>
           <strong>Copyright © 2020-2021 <a href="https://solicode.co">Solicode</a>.</strong> All rights reserved.
         </footer>

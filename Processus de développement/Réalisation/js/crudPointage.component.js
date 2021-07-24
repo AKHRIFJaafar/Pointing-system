@@ -24,68 +24,36 @@ class CrudPointage extends React.Component {
                 console.log(errorThrown);
             });
     }
-    //add Pointage
-    addPointage(e) {
-        $.ajax({
-            url: "/apiPointage/addPointage.php",
-            method: "POST",
-            data: {
-                nomOuvrier: addNomOuvrier.value,
-                numCIN: addNumCIN.value,
-                prixHeure: addPrixHeure.value,
-                categorie: addCategorie.value,
-                telephone: addTelephone.value,
-                nomChantier: addNomChantier.value,
 
-            },
-            success: function (data) {
-                this.chargementDonnees()
-                $("#exampleModalCenter").modal('hide');
-                console.log(data)
-            }.bind(this)
-        })
-        e.preventDefault();
-    }
-    // Remove ouvrier
-    removePointage(i) {
-        $.ajax({
-            url: "/apiPointage/deleteOuvrier.php",
-            method: "POST",
-            data: {
-                idOuvrier: i
-            },
-            success: function (data) {
-                //   $(this).parent().remove();
-                this.chargementDonnees()
-            }.bind(this)
-        })
-
-    }
-    //update ouvrier
-    updatePointage(i) {
-        $.ajax({
+    Pointer(i, status) {
+        if (status != 1) {
+          $.ajax({
             url: "apiPointage/updatePointage.php",
             method: "POST",
             data: {
-                idOuvrier : i,
-                nomOuvrier : "bonjour",
-                numCIN : updateNumCIN.value,
-                prixHeure : updatePrixHeure.value,
-                categorie : updateCategorie.value,
-                telephone : updateTelephone.value,
-                nomChantier : updateNomChantier.value,
+              idPointage: i,
+              presence: 1
             },
             success: function (data) {
-                this.chargementDonnees()
-                $("#exampleModalCenter1").modal('hide');
-                console.log(data)
+              this.chargementDonnees()
+              console.log(data)
             }.bind(this)
-        })
-        e.preventDefault();
-    }
-
-
-
+          })
+        } else {
+          $.ajax({
+            url: "apiPointage/updatePointage.php",
+            method: "POST",
+            data: {
+                idPointage: i,
+                presence: 0
+            },
+            success: function (data) {
+              this.chargementDonnees()
+              console.log(data)
+            }.bind(this)
+          })
+        }
+      }
 
 
 
@@ -94,19 +62,19 @@ class CrudPointage extends React.Component {
     }
 
     render() {
-        let pointageArray = this.state.pointageArray.map((pointage) => {
+        let pointageArray = this.state.pointageArray.map((pointage, idPointage) => {
             return (
                 <Pointage
                     key={pointage.idPointage}
                     pointage={pointage}
-                    onClickClose={this.removePointage.bind(this, pointage.idPointage)}
-                    onClickUpdate= {this.updatePointage.bind(this,pointage.idPointage)}
-                />
+                    done={pointage.presence}
+                    onClickPointer={this.Pointer.bind(this, pointage.idPointage, pointage.presence)}
+                    />
             )
         })
 
         return (
-               <table className="table table-hover">
+               <table className="table">
                     <thead className="thead">
                         <tr>
                             <th scope="col">Nom Complet</th>
@@ -115,8 +83,6 @@ class CrudPointage extends React.Component {
                             <th scope="col">Heure Pointage</th>
                             <th scope="col"></th>
                             <th scope="col"></th>
-
-
                         </tr>
                     </thead>
                     <tbody>
