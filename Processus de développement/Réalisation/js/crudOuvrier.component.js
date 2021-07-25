@@ -267,13 +267,13 @@ class CrudOuvrier extends React.Component {
                 </div>
 
 <div className="table-responsive">
-               <table className="table table-hover">
-                    <thead className="thead">
+               <table className="table table-striped ">
+                    <thead className="thead text-center">
                         <tr>
-                            <th scope="col">Nom Complet</th>
+                            <th scope="col">Nom d'ouvrier</th>
                             <th scope="col">N° Téléphone</th>
-                            <th scope="col">Prix Heure</th>
-                            <th scope="col">Catégorie</th>
+                            <th scope="col">Prix d'heure</th>
+                            <th scope="col">Métier</th>
                             <th scope="col"></th>
                             <th scope="col"></th>
 

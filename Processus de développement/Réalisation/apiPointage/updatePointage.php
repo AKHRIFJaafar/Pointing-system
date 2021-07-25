@@ -3,6 +3,7 @@ require_once (__DIR__.'/../manager/PointageManager.php');
 
 $pointage = new Pointage;
 $pointage->setIDPointage($_POST["idPointage"]);
+$pointage->setIdOuvrier($_POST["idOuvrier"]);
 $pointage->setPresence($_POST["presence"]);
 $pointage->setHeurePointage($_POST["heurePointage"]);
 $pointage->setNombreHeure($_POST["nombreHeure"]);

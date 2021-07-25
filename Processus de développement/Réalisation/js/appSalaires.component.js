@@ -28,13 +28,6 @@ class AppSalaires extends React.Component {
               {/* Default box */}
               <div className="card ">
                 <div className="card-header row justify-content-end align-items-center">
-                  <div className="input-group col-3 mr-3 ">
-                    <select className="custom-select" id="inputGroupSelect04" aria-label="">
-                      <option selected>30 Derniers jours</option>
-                      <option value={1}>15 Derniers jours</option>
-                      <option value={2}>7 Derniers jours</option>
-                    </select>
-                  </div>
                   <div className="col-3">
                     <input type="date" className="form-control " placeholder="" />
                   </div>

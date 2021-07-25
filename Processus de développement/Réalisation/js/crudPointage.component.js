@@ -25,17 +25,16 @@ class CrudPointage extends React.Component {
             });
     }
 
-    Pointer(i, status) {
+    Pointer(i, status, idOuvrier) {
         if (status != 1) {
           $.ajax({
             url: "apiPointage/updatePointage.php",
             method: "POST",
             data: {
               idPointage: i,
+              idOuvrier,
               presence: 1,
               nombreHeure:8,
-
-
             },
             success: function (data) {
               this.chargementDonnees()
@@ -67,7 +66,7 @@ class CrudPointage extends React.Component {
                 <Pointage
                     key={pointage.idPointage}
                     pointage={pointage}
-                    onClickPointer={this.Pointer.bind(this, pointage.idPointage, pointage.presence)}
+                    onClickPointer={this.Pointer.bind(this, pointage.idPointage, pointage.presence, pointage.idOuvrier)}
                     />
             )
         })

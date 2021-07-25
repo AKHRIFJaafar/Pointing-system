@@ -6,6 +6,7 @@ class Pointage extends React.Component {
     render() {
       let class_name = 'ouvrier'
       class_name += this.props.pointage.presence == 1 ? ' ouvrier-success' : ' ouvrier-info';
+      const dateTime = this.props.pointage.presence == 1 ? moment(this.props.pointage.heurePointage).format("h:mm"): ""; 
         return (
 
                 <tr className={class_name} >
@@ -13,7 +14,7 @@ class Pointage extends React.Component {
               <img src="../dist/img/user2-160x160.jpg" className="img-circle elevation-2 mr-3 " alt="User Image" width={35} height={35}/>{this.props.pointage.nomOuvrier}
               </td>
               <td>{this.props.pointage.nombreHeure}</td>
-              <td>{new Date(this.props.pointage.heurePointage).getUTCHours()}</td>
+              <td>{dateTime}</td>
               <td></td>
               <td>
               <svg xmlns="http://www.w3.org/2000/svg" width={22} height={22} fill="currentColor" className="bi bi-check-square" viewBox="0 0 16 16" onClick={this.props.onClickPointer}>
