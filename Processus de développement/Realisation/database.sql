@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 16 juil. 2021 à 17:54
+-- Généré le : lun. 26 juil. 2021 à 17:33
 -- Version du serveur :  8.0.24
 -- Version de PHP : 8.0.2
 
@@ -43,12 +43,10 @@ CREATE TABLE `ouvriers` (
 --
 
 INSERT INTO `ouvriers` (`idOuvrier`, `nomOuvrier`, `numCIN`, `prixHeure`, `categorie`, `telephone`, `nomChantier`, `photoOuvrier`) VALUES
-(12, 'Asmae', 'KB556677', '333', 'Paintre', '0677554433', 'Hakkama', NULL),
-(13, 'Asmae', 'KB556677', '12', 'Paintre', '0677554433', 'Hakkama', NULL),
-(14, 'Asmae', 'KB556677', '555', 'Maçon', '0677554433', 'Hakkama', NULL),
-(16, 'Yassine Bouchlouch', 'KB556677', '5', 'Paintre', '0677554433', 'Hakkama', NULL),
-(17, 'Yassine Bouchlouch', 'KB556677', '5', 'Paintre', '0677554433', 'Hakkama', NULL),
-(18, 'Yassine Bouchlouch', 'KB556677', '5', 'Paintre', '0677554433', 'Hakkama', NULL);
+(19, 'Asmae', 'KB556677', '30', 'Macon', '0677554433', 'Hakkama', NULL),
+(20, 'Fatima', 'K34567', '15', 'Paintre', '0677554433', 'Bni Makada', NULL),
+(21, 'Jaafar', 'L234567', '20', 'Carelageur', '0655554400', 'Tanja Balia', NULL),
+(22, 'Yassine', 'T345678', '25', 'Tailleur', '0544332266', 'Gzenaya', NULL);
 
 -- --------------------------------------------------------
 
@@ -60,8 +58,8 @@ CREATE TABLE `pointage` (
   `idPointage` int NOT NULL,
   `idOuvrier` int DEFAULT NULL,
   `idPointeur` int DEFAULT NULL,
-  `heurePointage` varchar(30) DEFAULT NULL,
-  `nombreHeure` varchar(10) DEFAULT NULL,
+  `heurePointage` datetime DEFAULT CURRENT_TIMESTAMP,
+  `nombreHeure` int DEFAULT NULL,
   `presence` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -70,8 +68,10 @@ CREATE TABLE `pointage` (
 --
 
 INSERT INTO `pointage` (`idPointage`, `idOuvrier`, `idPointeur`, `heurePointage`, `nombreHeure`, `presence`) VALUES
-(1, 12, NULL, 'ertyu', 'ertyu', 1),
-(2, 12, NULL, 'ERTT', 'tttttt', 0);
+(4, 19, NULL, '2021-07-26 15:57:35', 0, 0),
+(5, 21, NULL, '2021-07-26 15:57:31', 0, 0),
+(6, 20, NULL, '2021-07-26 13:54:18', 8, 1),
+(7, 22, NULL, '2021-07-26 15:57:33', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -81,12 +81,23 @@ INSERT INTO `pointage` (`idPointage`, `idOuvrier`, `idPointeur`, `heurePointage`
 
 CREATE TABLE `pointeur` (
   `idPointeur` int NOT NULL,
-  `nomPointeur` varchar(45) NOT NULL,
-  `emailPointeur` varchar(45) NOT NULL,
-  `motDePasse` varchar(45) NOT NULL,
+  `lastname` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `password` varchar(45) DEFAULT NULL,
   `motChantier` varchar(45) DEFAULT NULL,
-  `photoPointeur` varchar(45) DEFAULT NULL
+  `photoPointeur` varchar(45) DEFAULT NULL,
+  `created` timestamp(1) NULL DEFAULT NULL,
+  `pointeurcol` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `pointeur`
+--
+
+INSERT INTO `pointeur` (`idPointeur`, `lastname`, `email`, `password`, `motChantier`, `photoPointeur`, `created`, `pointeurcol`) VALUES
+(1, 'Jaafar', 'prototype@gmail.com', '12345', NULL, NULL, NULL, NULL),
+(2, 'Ajendouz', 'no@gmail.com', 'YXplcnR5', NULL, NULL, '2021-07-26 14:15:50.0', NULL),
+(4, 'Anas', 'akhrifjaafar7@gmail.com', 'YXplcnR5', NULL, NULL, '2021-07-26 14:17:53.0', NULL);
 
 --
 -- Index pour les tables déchargées
@@ -120,19 +131,19 @@ ALTER TABLE `pointeur`
 -- AUTO_INCREMENT pour la table `ouvriers`
 --
 ALTER TABLE `ouvriers`
-  MODIFY `idOuvrier` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `idOuvrier` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT pour la table `pointage`
 --
 ALTER TABLE `pointage`
-  MODIFY `idPointage` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idPointage` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pour la table `pointeur`
 --
 ALTER TABLE `pointeur`
-  MODIFY `idPointeur` int NOT NULL AUTO_INCREMENT;
+  MODIFY `idPointeur` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Contraintes pour les tables déchargées
