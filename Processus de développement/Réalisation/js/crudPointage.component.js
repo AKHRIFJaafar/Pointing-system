@@ -70,7 +70,7 @@ class CrudPointage extends React.Component {
                     />
             )
         })
-
+console.log(pointageArray.length, this.state.pointageArray.length);
         return (
                <table className="table">
                     <thead className="thead">
