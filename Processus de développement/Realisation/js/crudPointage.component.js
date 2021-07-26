@@ -75,9 +75,9 @@ console.log(pointageArray.length, this.state.pointageArray.length);
                <table className="table">
                     <thead className="thead">
                         <tr>
-                            <th scope="col">Nom Complet</th>
-                            <th scope="col">Nombre Heure</th>
-                            <th scope="col">Heure Pointage</th>
+                            <th scope="col">Nom et prénom</th>
+                            <th scope="col">Nombre d'heure</th>
+                            <th scope="col">Heure de pointage</th>
                             <th scope="col"></th>
                             <th scope="col"></th>
                         </tr>

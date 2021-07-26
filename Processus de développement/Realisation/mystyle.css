@@ -39,14 +39,20 @@ border-color: #3751FF !important;
   }
 
   .profile {
-      border: 1px solid #e1e1e1;
       border-radius: 50%;
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #3751FF;
+      background-color: white;
       font-size: 20px;
-      color: white;
+      color: black;
       width: 40px;
       height: 40px;
+      
+  }
+
+  /* sideBar  */
+
+  .margin-deconencte{
+      margin-top: 35vh;
   }

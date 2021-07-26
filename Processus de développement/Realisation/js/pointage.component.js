@@ -10,8 +10,11 @@ class Pointage extends React.Component {
         return (
 
                 <tr className={class_name} >
-              <td>
-              <img src="../dist/img/user2-160x160.jpg" className="img-circle elevation-2 mr-3 " alt="User Image" width={35} height={35}/>{this.props.pointage.nomOuvrier}
+              <td className="d-flex align-items-center">
+              <Profile profile={this.props.pointage.nomOuvrier} />
+              <span className="ml-3">       
+                   {this.props.pointage.nomOuvrier}
+              </span>
               </td>
               <td>{this.props.pointage.nombreHeure}</td>
               <td>{dateTime}</td>
